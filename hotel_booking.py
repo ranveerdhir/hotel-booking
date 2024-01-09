@@ -10,139 +10,52 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-# In[ ]:
 
-
-
-
-
-# In[2]:
 
 
 df = pd.read_csv(r"C:\Users\ranveer\OneDrive - University of Victoria\Documents\ML project\hotel_bookings.csv")
 
 
-# In[ ]:
-
-
-
-
-
-# In[3]:
 
 
 type(df)
 
 
-# In[4]:
 
 
 df.head(3)
 
 
-# In[5]:
 
 
 df.isnull()
 
-
-# In[6]:
-
-
 df.drop(['agent','company'],axis = 1,inplace=True)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[7]:
 
 
 df['country'].value_counts()
 
 
-# In[8]:
-
-
 df['country'].value_counts().index
 
-
-# In[9]:
 
 
 df['country'].fillna(df['country'].value_counts().index[0],inplace=True)
 
 
-# In[10]:
-
 
 df.fillna(0,inplace=True)
 
-
-# In[11]:
 
 
 df.isnull().sum()
 
 
-# In[12]:
-
 
 filter1 = (df['children'] == 0) &(df['adults']==0)&(df['babies']==0)
 
 
-# In[13]:
+
 
 
 df[filter1]
@@ -268,28 +181,6 @@ map_guest = px.choropleth(country_wise_data,locations = country_wise_data['count
 map_guest.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[28]:
@@ -305,24 +196,6 @@ data2 = data[data['is_canceled'] == 0 ]      #filter of for cancelation
 data2.columns
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[30]:
 
 
@@ -336,52 +209,11 @@ data_resort = data[(data['hotel']=='Resort Hotel') & (data['is_canceled']==0)]
 data_city = data[(data['hotel']=='City Hotel') & (data['is_canceled']==0)]
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
 
 # In[32]:
 
 
 data_city
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[33]:
@@ -422,13 +254,6 @@ rush_city
 final_rush = rush_resort.merge(rush_city,on = 'month')  #on tells the comman column
 
 
-# In[ ]:
-
-
-
-
-
-# In[38]:
 
 
 final_rush.columns = ['month','no_of_guests_in_resort','no_of_guests_city']
@@ -607,16 +432,6 @@ type(sd)
 data2 = sd.Sort_Dataframeby_Month(data2,'arrival_date_month')
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[58]:
@@ -781,9 +596,6 @@ cate_features = [col for col in data.columns if data[col].dtype=='object']
 cate_features
 
 
-# In[ ]:
-
-
 
 
 
@@ -793,13 +605,7 @@ cate_features
 num_features = [col for col in data.columns if data[col].dtype!='object']
 
 
-# In[ ]:
-
-
-
-
-
-# In[84]:
+# 
 
 
 num_features
@@ -1268,601 +1074,11 @@ X_train
 y
 
 
-# In[ ]:
 
 
 
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
